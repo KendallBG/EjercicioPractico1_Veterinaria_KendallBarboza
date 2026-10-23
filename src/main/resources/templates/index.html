@@ -4,7 +4,7 @@
 <head th:replace="~{fragments/comunes :: head('Inicio - Clínica Veterinaria')}"></head>
 <body>
 
-    <header th:replace="~{fragments/comunes :: header}"></header>
+    
 <div th:replace="~{fragments/comunes :: navbar}"></div>
 
 <header class="bg-primary text-white py-5">
@@ -66,16 +66,23 @@
             </div>
         </div>
 
-        <div class="col-12">
-            <h2 class="h4 mb-3">Conocé más sobre el cuidado animal</h2>
-            <div class="ratio ratio-16x9">
-                <iframe
-                    src="https://www.youtube.com/embed/1HygThMLzGs"
-                    title="Video sobre el cuidado de las mascotas"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+        
+<div class="container my-5 text-center">
+    <h2 class="mb-3">Consejos veterinarios</h2>
+    <p class="mb-4">
+        Aprendé cómo cuidar la salud y el bienestar de tus mascotas.
+    </p>
+
+    <div class="ratio ratio-16x9">
+        <iframe
+            src="https://www.youtube.com/embed/1v7cyYElFec"
+            title="Cuidados veterinarios para cachorros"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
     </div>
 </main>
 
