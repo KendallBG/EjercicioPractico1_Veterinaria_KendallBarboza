@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package com.veterinaria.veterinaria.Controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 /**
  *
  * @author kenjo
@@ -21,24 +23,21 @@ public class ContactoController {
     }
 
     @PostMapping("/contacto")
-    public String enviarFormulario(Model model) {
-        model.addAttribute(
+    public String enviarFormulario(
+            @RequestParam("nombre") String nombre,
+            @RequestParam("correo") String correo,
+            @RequestParam("nombreMascota") String nombreMascota,
+            @RequestParam("mensaje") String mensaje,
+            RedirectAttributes redirectAttributes) {
+
+        redirectAttributes.addFlashAttribute(
                 "mensaje",
-                "¡Gracias por contactar a nuestra clínica veterinaria! "
-                + "Pronto nos comunicaremos con vos."
+                "¡Gracias, " + nombre
+                + "! Recibimos tu mensaje sobre "
+                + nombreMascota
+                + ". Pronto nos comunicaremos con vos."
         );
 
-        return "redirect:/contacto/gracias";
-    }
-
-    @GetMapping("/contacto/gracias")
-    public String mostrarGracias(Model model) {
-        model.addAttribute(
-                "mensaje",
-                "¡Gracias por contactar a nuestra clínica veterinaria! "
-                + "Pronto nos comunicaremos con vos."
-        );
-
-        return "contacto-gracias";
+        return "redirect:/contacto";
     }
 }

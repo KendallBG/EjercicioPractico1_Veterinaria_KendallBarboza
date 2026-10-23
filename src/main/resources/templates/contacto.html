@@ -1,67 +1,78 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/comunes :: head('Contacto')}"></head>
 <body>
 
-<nav th:replace="~{fragments/comunes :: navbar}"></nav>
+    <header th:replace="~{fragments/comunes :: header}"></header>
+    <nav th:replace="~{fragments/comunes :: navbar}"></nav>
 
-<main class="container mt-4 mb-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow-sm">
-                <div class="card-body p-4">
-                    <h1 class="mb-3">Contactanos</h1>
-                    <p class="text-muted">
-                        Completá el formulario y nos pondremos en contacto.
-                    </p>
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
 
-                    <form th:action="@{/contacto}" method="post">
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">
-                                Nombre completo
-                            </label>
-                            <input type="text" id="nombre" name="nombre"
-                                   class="form-control" required>
-                        </div>
+                <h1 class="mb-4" th:text="#{contacto.titulo}">
+                    Contactanos
+                </h1>
 
-                        <div class="mb-3">
-                            <label for="correo" class="form-label">
-                                Correo electrónico
-                            </label>
-                            <input type="email" id="correo" name="correo"
-                                   class="form-control" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="asunto" class="form-label">
-                                Asunto
-                            </label>
-                            <input type="text" id="asunto" name="asunto"
-                                   class="form-control" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">
-                                Mensaje
-                            </label>
-                            <textarea id="mensaje" name="mensaje"
-                                      class="form-control" rows="4"
-                                      required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100">
-                            Enviar mensaje
-                        </button>
-                    </form>
+                <div th:if="${mensaje}"
+                     class="alert alert-success"
+                     role="alert"
+                     th:text="${mensaje}">
                 </div>
+
+                <form th:action="@{/contacto}" method="post">
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label"
+                               th:text="#{contacto.nombre}">
+                            Nombre completo
+                        </label>
+                        <input type="text" id="nombre" name="nombre"
+                               class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="correo" class="form-label"
+                               th:text="#{contacto.correo}">
+                            Correo electrónico
+                        </label>
+                        <input type="email" id="correo" name="correo"
+                               class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombreMascota" class="form-label">
+                            Nombre de la mascota
+                        </label>
+                        <input type="text" id="nombreMascota"
+                               name="nombreMascota"
+                               class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label"
+                               th:text="#{contacto.mensaje}">
+                            Mensaje
+                        </label>
+                        <textarea id="mensaje" name="mensaje"
+                                  class="form-control" rows="5"
+                                  required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                            th:text="#{contacto.enviar}">
+                        Enviar mensaje
+                    </button>
+
+                </form>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<footer th:replace="~{fragments/comunes :: footer}"></footer>
-<div th:replace="~{fragments/comunes :: scripts}"></div>
+    <footer th:replace="~{fragments/comunes :: footer}"></footer>
+
+    <div th:replace="~{fragments/comunes :: scripts}"></div>
 
 </body>
 </html>
