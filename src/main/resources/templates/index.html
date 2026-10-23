@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/comunes :: head('Inicio - Clínica Veterinaria')}"></head>
+<body>
+
+<div th:replace="~{fragments/comunes :: navbar}"></div>
+
+<header class="bg-primary text-white py-5">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold">Clínica Veterinaria</h1>
+        <p class="lead">
+            Cuidamos la salud y el bienestar de tus mejores amigos.
+        </p>
+        <a th:href="@{/servicios}" class="btn btn-light btn-lg mt-2">
+            Conocé nuestros servicios
+        </a>
+    </div>
+</header>
+
+<main class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="h4">Horario de atención</h2>
+                    <p>Lunes a viernes: 8:00 a. m. - 6:00 p. m.</p>
+                    <p>Sábados: 8:00 a. m. - 12:00 m.</p>
+                    <p>Domingos: cerrado.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="h4">Ubicación</h2>
+                    <p>San José, Costa Rica.</p>
+                    <h3 class="h5 mt-3">Especialidades</h3>
+                    <ul>
+                        <li>Consulta veterinaria general</li>
+                        <li>Vacunación</li>
+                        <li>Estética y cuidado</li>
+                        <li>Cirugía veterinaria</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <span class="badge text-bg-success mb-2">
+                        Promoción del mes
+                    </span>
+                    <h2 class="h4">Chequeo preventivo para tu mascota</h2>
+                    <p>
+                        Consultá por nuestros servicios de revisión y
+                        prevención para cuidar la salud de tu mascota.
+                    </p>
+                    <a th:href="@{/servicios}" class="btn btn-primary">
+                        Ver servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <h2 class="h4 mb-3">Conocé más sobre el cuidado animal</h2>
+            <div class="ratio ratio-16x9">
+                <iframe
+                    src="https://www.youtube.com/embed/1HygThMLzGs"
+                    title="Video sobre el cuidado de las mascotas"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments/comunes :: footer}"></div>
+<div th:replace="~{fragments/comunes :: scripts}"></div>
+
+</body>
+</html>
